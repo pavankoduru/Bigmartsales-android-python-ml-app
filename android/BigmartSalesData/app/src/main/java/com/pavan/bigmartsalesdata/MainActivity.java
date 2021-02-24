@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         outlettypeGroup = findViewById(R.id.radiooutletType);
 
 
-       /* Itemweight.setFilters(new InputFilter[]{new MinMaxFilter(this,0.00,50000)});
+       Itemweight.setFilters(new InputFilter[]{new MinMaxFilter(this,0.00,50000)});
 
 
 
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 
 
-        Establishmentyear.setFilters(new InputFilter[]{new MinMaxFilter(this,0,2021)});*/
+        Establishmentyear.setFilters(new InputFilter[]{new MinMaxFilter(this,0,2021)});
         Itemidstr=ItemId.getText().toString();
         OutletIdstr=OutletId.getText().toString();
         ItemWeight= Itemweight.getText().toString();
@@ -169,9 +169,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         } else {
             OutletType = outlettyperadiobutton.getText().toString();
         }
-        Toast.makeText(this, "Itemvis:"+Itemvis+"eyear"+eyear+"Itemmrp"+Itemmrp+"ItemWeight"+ItemWeight+ItemType+OutletIdstr+Itemidstr, Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, "Itemvis:"+Itemvis+"eyear"+eyear+"Itemmrp"+Itemmrp+"ItemWeight"+ItemWeight+ItemType+OutletIdstr+Itemidstr, Toast.LENGTH_LONG).show();
 
-        boolean ivis = !(TextUtils.isEmpty(Itemvis));
+        /*boolean ivis = !(TextUtils.isEmpty(Itemvis));
         boolean estyear = !(TextUtils.isEmpty(eyear));
         boolean imrp = !(TextUtils.isEmpty(Itemmrp));
         boolean iw = !(TextUtils.isEmpty(ItemWeight));
@@ -180,16 +180,16 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         boolean iid=!(TextUtils.isEmpty(Itemidstr));
         Toast.makeText(this,
                 String.valueOf(ivis)+String.valueOf(estyear)+String.valueOf(imrp)+String.valueOf(iw)+String.valueOf(it)+String.valueOf(oid)+String.valueOf(iid),
-                Toast.LENGTH_SHORT).show();
+                Toast.LENGTH_SHORT).show();*/
 
 
 
         if ( !(TextUtils.isEmpty(eyear)) && !(TextUtils.isEmpty(Itemvis)) && !(TextUtils.isEmpty(Itemmrp)) && !(TextUtils.isEmpty(ItemWeight))  && !(TextUtils.isEmpty(Itemidstr)) && !(TextUtils.isEmpty(OutletIdstr) && !(TextUtils.isEmpty(ItemType)))) {
-            Toast.makeText(this, "All details are ok", Toast.LENGTH_SHORT).show();
+           // Toast.makeText(this, "All details are ok", Toast.LENGTH_SHORT).show();
 
 
 
-/*RequestQueue requestQueue= Volley.newRequestQueue(this);
+            RequestQueue requestQueue= Volley.newRequestQueue(this);
             final String url="";
             JSONObject postParams=new JSONObject();
             try {
@@ -211,7 +211,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             JsonObjectRequest jsonObjectRequest= new JsonObjectRequest(Request.Method.POST, url, postParams, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
-                    Toast.makeText(MainActivity.this, response.toString(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Item Id:"+Itemidstr+"\n"+"StoreId:"+OutletIdstr+"\n"+response.toString(), Toast.LENGTH_LONG).show();
 
                 }
             }, new Response.ErrorListener() {
@@ -221,15 +221,17 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
                 }
             });
-            requestQueue.add(jsonObjectRequest);*//*
+            requestQueue.add(jsonObjectRequest);
 
         }
 
-        /*else{
+        else{
             Toast.makeText(this, "make sure all the details are given correctly", Toast.LENGTH_SHORT).show();
-        }*/
+        }
 
 
         }
     }
-}
+
+
+
