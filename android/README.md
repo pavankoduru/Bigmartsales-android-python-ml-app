@@ -1,1 +1,2 @@
-# sample-android-python-ml-app
+# Bigmart-sales-android-python-ml-app
+This folder contains all the android files
