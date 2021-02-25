@@ -7,7 +7,7 @@ from flask_cors import CORS
 app=Flask(__name__)
 rfregressor=pickle.load(open('model.pkl','rb'))
 CORS(app)
-visibility_item_avg = None
+visibility_item_avg = [[]]
 def impute_visibility_mean(cols):
     visibility = cols[0]
     item = cols[1]
@@ -24,19 +24,21 @@ def findSales():
     print(request)
     item_identifier=request.json['Item_Identifier']
     
-    item_weight=request.json['Item_Weight']
+    item_weight=float(request.json['Item_Weight'])
+	
     
-    item_fat_content=request.json['Item_Fat_Content']
+    item_fat_content=float(request.json['Item_Fat_Content'])
+	
     
-    item_visibility=request.json['Item_Visibility']
+    item_visibility=float(request.json['Item_Visibility'])
     
     item_type=request.json['Item_Type']
     
-    item_mrp=request.json['Item_MRP']
+    item_mrp=float(request.json['Item_MRP'])
     
     outlet_identifier=request.json['Outlet_Identifier']
     
-    outlet_establishment_year=request.json['Outlet_Establishment_Year']
+    outlet_establishment_year=int(request.json['Outlet_Establishment_Year'])
     
     outlet_size=request.json['Outlet_Size']
     
