@@ -5,8 +5,18 @@ import pickle
 import requests,ssl
 from flask_cors import CORS
 app=Flask(__name__)
-model=pickle.load(open('model.pkl','rb'))
+rfregressor=pickle.load(open('model.pkl','rb'))
 CORS(app)
+visibility_item_avg = None
+def impute_visibility_mean(cols):
+    visibility = cols[0]
+    item = cols[1]
+    
+    if visibility == 0:
+       
+        return visibility_item_avg['Item_Visibility'][visibility_item_avg.index == item]
+    else:
+        return visibility
 
 @app.route('/findsales',methods=['POST'])
 def findSales():
