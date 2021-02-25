@@ -1,7 +1,6 @@
-import warnings
-warnings.filterwarnings('ignore')
+#import warnings
+#warnings.filterwarnings('ignore')
 import pandas as pd
-import numpy as np
 import pickle
 train=pd.read_csv('Train.csv')
 test = pd.read_csv("Test.csv")
@@ -63,6 +62,7 @@ rfregressor = RandomForestRegressor(n_estimators=100,max_depth=6, min_samples_le
 rfregressor.fit(XTrain, YTrain)
 # Saving model to disk
 pickle.dump(rfregressor, open('model.pkl','wb'))
+#print(rfregressor.predict(XTest))
 
 
 
