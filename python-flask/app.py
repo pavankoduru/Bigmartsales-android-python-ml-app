@@ -79,7 +79,7 @@ def findSales():
   
     data=data.drop(['Outlet_Identifier','Item_Identifier'], axis=1)
     res = rfregressor.predict(data)
-    return res
+    return str(res[0])
 
 
 if __name__=="__main__":
